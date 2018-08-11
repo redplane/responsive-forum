@@ -16,11 +16,14 @@
 
     @*Components*@
     <link rel="stylesheet" href="~/css/components/footer.css" />
-    <link rel="stylesheet" href="~/css/components/forum-categories.css" />
+
     <link rel="stylesheet" href="~/css/components/app.css" />
     <link rel="stylesheet" href="/css/components/color.css" />
-    <link rel="stylesheet" href="css/components/forum-header.css" />
-    
+    <link rel="stylesheet" href="/css/components/forum-header.css" />
+
+    <link rel="stylesheet" href="~/css/components/forum-categories.css" />
+    <link rel="stylesheet" href="~/css/components/topics.css" />
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -31,6 +34,28 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
 </head>
-@RenderBody()
+<body class="container-fluid bg-grey">
+
+    @*Navigation bar*@
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Partial("_NavigationBar")
+        </div>
+    </div>
+
+    @*Forum header*@
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Partial("_Header")
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div class="row">
+        @Html.Partial("_Footer")
+    </div>
+
+</body>
 </html>
 

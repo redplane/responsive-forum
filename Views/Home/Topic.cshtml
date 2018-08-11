@@ -1,379 +1,144 @@
-﻿<body id="phpbb" class="section-viewforum ltr" style="">
-    <div id="wrap">
-        <a id="top" accesskey="t"></a>
-        <div id="page-header">
-            <div id="topbar">
-                <div id="topbar-inner" class="inner-block">
-                    <ul class="user-links">
-                        <li id="login-link">
-                            <i class="fa fa-sign-in fa-lg"></i><a href="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=2#login-box"
-                                                                  class="login-window" title="Login" accesskey="x">Login</a><a href="https://phpbb3.pixelgoose.com/ucp.php?style=14&amp;mode=login" class="login-link"
-                                                                                                                               title="Login" accesskey="x">Login</a>
-                            <div id="login-box" class="login-popup">
-                                <div class="arrow-up"></div>
-                                <form method="post" action="https://phpbb3.pixelgoose.com/ucp.php?style=14&amp;mode=login"
-                                      class="quick-login">
-                                    <fieldset>
-                                        <div class="navbar_username_outer">
-                                            <label for="username">Username:</label>&nbsp;<br><input type="text"
-                                                                                                    name="username"
-                                                                                                    id="navbar_username"
-                                                                                                    size="10"
-                                                                                                    class="inputbox"
-                                                                                                    title="Username">
-                                        </div>
-                                        <div class="navbar_password_outer">
-                                            <label for="password">Password:</label>&nbsp;<br><input type="password"
-                                                                                                    name="password"
-                                                                                                    id="navbar_password"
-                                                                                                    size="10"
-                                                                                                    class="inputbox"
-                                                                                                    title="Password">
-                                        </div>
-                                        <div class="login-buttons">
-                                            <input type="submit" name="login" value="Login" class="button2">
-                                            <input type="hidden" name="redirect"
-                                                   value="./viewforum.php?style=14&amp;f=2&amp;style=14">
-                                            <input type="checkbox" name="autologin" id="autologin">&nbsp;<label id="autologin_label" for="autologin">
-                                                Log me on automatically each
-                                                visit
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                                <div class="forgot-pass">
-                                    <a href="https://phpbb3.pixelgoose.com/ucp.php?mode=sendpassword">
-                                        I
-                                        forgot my password
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="search-box">
-                        <form action="https://phpbb3.pixelgoose.com/search.php?style=14" method="get" id="search">
-                            <fieldset>
-                                <div class="search-box-inner">
-                                    <button type="submit" class="button2"><i class="fa fa-search"></i></button>
-                                    <input name="keywords" id="keywords" type="text" maxlength="128"
-                                           title="Search for keywords" class="inputbox search" value="Search…"
-                                           onclick="if(this.value==&#39;Search…&#39;)this.value=&#39;&#39;;"
-                                           onblur="if(this.value==&#39;&#39;)this.value=&#39;Search…&#39;;">
-                                </div>
-                                <a href="https://phpbb3.pixelgoose.com/search.php?style=14" class="search-adv-link"
-                                   title="View the advanced search options">Advanced search</a> <input type="hidden"
-                                                                                                       name="style"
-                                                                                                       value="14">
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div id="headerbar">
-                <div id="headerbar-inner" class="inner-block">
-                    <div id="site-logo">
-                        <a href="https://phpbb3.pixelgoose.com/index.php?style=14" title="Board index" id="logo">
-                            <img src="https://phpbb3.pixelgoose.com/styles/marina_teal/imageset/site_logo.svg" width="164" height="42" alt="" title="">
-                        </a>
-                        <p class="skiplink">
-                            <a href="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=2#start_here">
-                                Skip to
-                                content
-                            </a>
-                        </p>
-                    </div>
-                    <div id="main-nav">
-                        <ul>
-                            <li><a href="https://phpbb3.pixelgoose.com/index.php?style=14">Home</a></li>
-                            <li>
-                                <a href="https://phpbb3.pixelgoose.com/faq.php?style=14" title="Frequently Asked Questions">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar top-navbar">
-                <div class="inner inner-block">
-                    <ul class="linklist navlinks">
-                        <li id="breadcrumbs">
-                            <i class="fa fa-home grey"></i><a href="https://phpbb3.pixelgoose.com/index.php?style=14" accesskey="h">Board index</a> <i class="fa fa-caret-right grey"></i><a href="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=1">
-                                Your first
-                                category
-                            </a><i class="fa fa-caret-right grey"></i><a href="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=2">Your first forum</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+﻿@{
+    Layout = "_Layout";
+}
+
+<div ng-app="ngTopicsModule"
+     ng-controller="ngTopicsController"
+     ng-init="ngOnInit()">
+    <div class="col-lg-10">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
         </div>
-        <a id="start_here"></a>
-        <div id="page-body" class="inner-block">
-            <h1 class="pagetitle">
-                <a href="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=2">
+
+        @*Forum description*@
+        <div class="row">
+            <h1 class="topics-title">
+                <a href="javascript:void(0);">
                     Your first
                     forum
                 </a>
             </h1>
-            <div>
-                <div style="display: none !important;">Description of your first forum.<br></div>
-            </div>
-            <div id="page-body-inner">
-                <div class="topic-actions">
-                    <div class="buttons">
-                        <div class="post-icon" title="Post a new topic">
-                            <a href="https://phpbb3.pixelgoose.com/posting.php?style=14&amp;mode=post&amp;f=2">
-                                <span></span><i class="fa fa-edit fa-lg"></i>Post a new topic
-                            </a>
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <form method="get" id="forum-search" action="https://phpbb3.pixelgoose.com/search.php?style=14">
-                            <fieldset>
-                                <input class="inputbox search tiny" type="text" name="keywords" id="search_keywords"
-                                       size="20" value="Search this forum…"
-                                       onclick="if (this.value == &#39;Search this forum…&#39;) this.value = &#39;&#39;;"
-                                       onblur="if (this.value == &#39;&#39;) this.value = &#39;Search this forum…&#39;;">
-                                <input class="button2" type="submit" value="Search">
-                                <input type="hidden" name="fid[0]" value="2">
-                                <input type="hidden" name="style" value="14">
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-                <div class="forumbg">
-                    <div class="inner">
-                        <ul class="topiclist">
-                            <li class="header">
-                                <dl class="icon">
-                                    <dt class="header-name">Topics</dt>
-                                    <dd class="posts">Replies</dd>
-                                    <dd class="views">Views</dd>
-                                    <dd class="lastpost"><span>Last post</span></dd>
-                                </dl>
-                            </li>
-                        </ul>
-                        <ul class="topiclist topics">
+        </div>
 
-                            <li class="row bg1">
-                                <dl class="icon"
-                                    style="background-image: url('https://phpbb3.pixelgoose.com/styles/marina_teal/imageset/topic_read.svg'); background-repeat: no-repeat;">
-                                    <dt style="background-image: url('https://phpbb3.pixelgoose.com/images/icons/misc/fire.gif'); background-repeat: no-repeat;"
-                                        title="No unread posts">
-                                        <a href="@Url.Action("TopicDetail", "Home")"
-                                           class="topictitle">phpBB3 thread</a>
-                                        <br>
-                                        by
-                                        <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                           style="color: #AA0000;" class="username-coloured">PixelGoose</a> » Fri Apr 12,
-                                        2013 9:47 pm
-                                    </dt>
-                                    <dd class="posts">5 <dfn>Replies</dfn></dd>
-                                    <dd class="views">181822 <dfn>Views</dfn></dd>
-                                    <dd class="lastpost">
-                                        <span>
-                                            <dfn>Last post </dfn>by <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=57">lutvia</a>
-                                            <a href="https://phpbb3.pixelgoose.com/viewtopic.php?style=14&amp;f=2&amp;t=3&amp;p=19#p19">
-                                                <i class="fa fa-arrow-right grey"></i>
-                                            </a> <br>Wed Apr 09, 2014 2:28 pm
-                                        </span>
-                                    </dd>
-                                </dl>
-                            </li>
-
-                            <li class="row bg2">
-                                <dl class="icon"
-                                    style="background-image: url('https://phpbb3.pixelgoose.com/styles/marina_teal/imageset/topic_read.svg'); background-repeat: no-repeat;">
-                                    <dt style="background-image: url('https://phpbb3.pixelgoose.com/images/icons/misc/heart.gif'); background-repeat: no-repeat;"
-                                        title="No unread posts">
-                                        <a href="@Url.Action("TopicDetail", "Home")"
-                                           class="topictitle">Metro theme for phpBB 3</a>
-                                        <br>
-                                        by
-                                        <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                           style="color: #AA0000;" class="username-coloured">PixelGoose</a> » Mon Apr 15,
-                                        2013 7:48 pm
-                                    </dt>
-                                    <dd class="posts">0 <dfn>Replies</dfn></dd>
-                                    <dd class="views">56609 <dfn>Views</dfn></dd>
-                                    <dd class="lastpost">
-                                        <span>
-                                            <dfn>Last post </dfn>by <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                                                       style="color: #AA0000;" class="username-coloured">PixelGoose</a>
-                                            <a href="https://phpbb3.pixelgoose.com/viewtopic.php?style=14&amp;f=2&amp;t=13&amp;p=13#p13">
-                                                <i class="fa fa-arrow-right grey"></i>
-                                            </a> <br>Mon Apr 15, 2013 7:48 pm
-                                        </span>
-                                    </dd>
-                                </dl>
-                            </li>
-
-                            <li class="row bg1">
-                                <dl class="icon"
-                                    style="background-image: url('https://phpbb3.pixelgoose.com/styles/marina_teal/imageset/topic_read.svg'); background-repeat: no-repeat;">
-                                    <dt title="No unread posts">
-                                        <a href="https://phpbb3.pixelgoose.com/viewtopic.php?style=14&amp;f=2&amp;t=2"
-                                           class="topictitle">Second topic with long name</a>
-                                        <br>
-                                        by
-                                        <a href="@Url.Action("TopicDetail", "Home")"
-                                           style="color: #AA0000;" class="username-coloured">PixelGoose</a> » Fri Apr 12,
-                                        2013 9:46 pm
-                                    </dt>
-                                    <dd class="posts">0 <dfn>Replies</dfn></dd>
-                                    <dd class="views">50303 <dfn>Views</dfn></dd>
-                                    <dd class="lastpost">
-                                        <span>
-                                            <dfn>Last post </dfn>by <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                                                       style="color: #AA0000;" class="username-coloured">PixelGoose</a>
-                                            <a href="https://phpbb3.pixelgoose.com/viewtopic.php?style=14&amp;f=2&amp;t=2&amp;p=2#p2">
-                                                <i class="fa fa-arrow-right grey"></i>
-                                            </a> <br>Fri Apr 12, 2013 9:46 pm
-                                        </span>
-                                    </dd>
-                                </dl>
-                            </li>
-
-                            <li class="row bg2">
-                                <dl class="icon"
-                                    style="background-image: url('https://phpbb3.pixelgoose.com/styles/marina_teal/imageset/topic_read.svg'); background-repeat: no-repeat;">
-                                    <dt title="No unread posts">
-                                        <a href="@Url.Action("TopicDetail", "Home")"
-                                           class="topictitle">Welcome to phpBB3</a>
-                                        <br>
-                                        by
-                                        <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                           style="color: #AA0000;" class="username-coloured">PixelGoose</a> » Fri Apr 12,
-                                        2013 9:26 pm
-                                    </dt>
-                                    <dd class="posts">0 <dfn>Replies</dfn></dd>
-                                    <dd class="views">47342 <dfn>Views</dfn></dd>
-                                    <dd class="lastpost">
-                                        <span>
-                                            <dfn>Last post </dfn>by <a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=viewprofile&amp;u=2"
-                                                                       style="color: #AA0000;" class="username-coloured">PixelGoose</a>
-                                            <a href="https://phpbb3.pixelgoose.com/viewtopic.php?style=14&amp;f=2&amp;t=1&amp;p=1#p1">
-                                                <i class="fa fa-arrow-right grey"></i>
-                                            </a> <br>Fri Apr 12, 2013 9:26 pm
-                                        </span>
-                                    </dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <form method="post" action="https://phpbb3.pixelgoose.com/viewforum.php?style=14&amp;f=2">
-                    <fieldset class="display-options">
-                        <label>
-                            Display topics from previous: <select name="st" id="st">
-                                <option value="0" selected="selected">All Topics</option>
-                                <option value="1">1 day</option>
-                                <option value="7">7 days</option>
-                                <option value="14">2 weeks</option>
-                                <option value="30">1 month</option>
-                                <option value="90">3 months</option>
-                                <option value="180">6 months</option>
-                                <option value="365">1 year</option>
-                            </select>
-                        </label>
-                        <label>
-                            Sort by <select name="sk" id="sk">
-                                <option value="a">Author</option>
-                                <option value="t" selected="selected">Post time</option>
-                                <option value="r">Replies</option>
-                                <option value="s">Subject</option>
-                                <option value="v">Views</option>
-                            </select>
-                        </label>
-                        <label>
-                            <select name="sd" id="sd">
-                                <option value="a">Ascending</option>
-                                <option value="d" selected="selected">Descending</option>
-                            </select> <input type="submit" name="sort" value="Go" class="button2">
-                        </label>
-                    </fieldset>
-                </form>
-                <hr>
-                <div class="topic-actions">
-                    <div class="buttons">
-                        <div class="post-icon" title="Post a new topic">
-                            <a href="https://phpbb3.pixelgoose.com/posting.php?style=14&amp;mode=post&amp;f=2">
-                                <span></span><i class="fa fa-edit fa-lg"></i>Post a new topic
-                            </a>
-                        </div>
-                    </div>
-                    <div class="pagination">
-                        4 topics • Page <strong>1</strong> of <strong>1</strong>
-                    </div>
-                </div>
-                <div class="backto">
-                    <a href="https://phpbb3.pixelgoose.com/index.php?style=14" class="left-box left"
-                       accesskey="r"><i class="fa fa-arrow-left grey"></i>Return to Board index</a>
-                </div>
-                <form method="post" id="jumpbox" action="https://phpbb3.pixelgoose.com/viewforum.php?style=14"
-                      onsubmit="if(this.f.value == -1){return false;}">
-                    <fieldset class="jumpbox">
-                        <label for="f" accesskey="j">Jump to:</label>
-                        <select name="f" id="f"
-                                onchange="if(this.options[this.selectedIndex].value != -1){ document.forms[&#39;jumpbox&#39;].submit() }">
-                            <option value="-1">Select a forum</option>
-                            <option value="-1">------------------</option>
-                            <option value="1">Your first category</option>
-                            <option value="2" selected="selected">&nbsp; &nbsp;Your first forum</option>
-                            <option value="4">&nbsp; &nbsp;Your second forum</option>
-                            <option value="5">&nbsp; &nbsp;Your third forum</option>
-                            <option value="3">Your second category</option>
-                            <option value="6">&nbsp; &nbsp;Your first forum</option>
-                            <option value="7">&nbsp; &nbsp;Your second forum</option>
-                            <option value="10">&nbsp; &nbsp;Buy "Quarto" theme!</option>
-                            <option value="8">&nbsp; &nbsp;Buy "Metro" theme!</option>
-                            <option value="9">&nbsp; &nbsp;Buy "Marina" theme!</option>
-                        </select>
-                        <input type="submit" value="Go" class="button2">
-                    </fieldset>
-                </form>
-                <div class="block-outer width-50 first">
-                    <div class="block-header">Who is online</div>
-                    <div class="block-body">Users browsing this forum: No registered users and 1 guest</div>
-                </div>
-                <div class="block-outer width-50">
-                    <div class="block-header">Forum permissions</div>
-                    <div class="block-body">
-                        You <strong>cannot</strong> post new topics in this forum<br>You
-                        <strong>cannot</strong> reply to topics in this forum<br>You <strong>cannot</strong> edit your posts
-                        in this forum<br>You <strong>cannot</strong> delete your posts in this forum<br>You
-                        <strong>cannot</strong> post attachments in this forum<br>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="form-group">
+                <button class="btn btn-primary">
+                    <span class="fa fa-plus-circle"></span>&nbsp;
+                    Add a thread
+                </button>
             </div>
         </div>
-        <div id="page-footer">
-            <div class="navbar">
-                <div class="inner inner-block">
-                    <ul class="linklist">
-                        <li>
-                            <i class="fa fa-home grey"></i><a href="https://phpbb3.pixelgoose.com/index.php?style=14"
-                                                              accesskey="h">Board index</a>
-                        </li>
-                    </ul>
-                </div>
+
+        <div class="row">
+            <div class="form-group">
+                <table class="table table-condensed topics">
+                    <thead>
+                        <tr class="no-bottom-padding bg-teal">
+                            <th>Topics</th>
+                            <th class="replies">Replies</th>
+                            <th class="views">Views</th>
+                            <th class="last-post">Last post</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="topic in _loadTopicSummariesResult.records">
+                            <td>
+                                <div class="topic-info-container">
+                                    <img class="topic-img" ng-src="{{topic.photo}}" />
+                                    <div class="topic-detail-container">
+                                        <a class="topic-title">{{topic.title}}</a>
+                                        <div class="topic-description text-ellipsis">
+                                            <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="replies">
+                                {{topic.replies}}
+                            </td>
+                            <td class="views">
+                                {{topic.views}}
+                            </td>
+                            <td class="last-post">
+                                <div class="text-ellipsis">
+                                    <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
+                                    <br />
+                                    <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        @Html.Partial("_Footer")
-        <div id="footer-links">
-            <div id="footer-links-inner" class="inner-block">
-                <ul class="leftside-links">
-                    <li>
-                        <i class="fa fa-users fa-lg"></i><a href="https://phpbb3.pixelgoose.com/memberlist.php?style=14&amp;mode=leaders">The team</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-times-circle fa-lg"></i><a href="https://phpbb3.pixelgoose.com/ucp.php?style=14&amp;mode=delete_cookies">
-                            Delete all board
-                            cookies
-                        </a>
-                    </li>
+
+        @*Pagination*@
+        <div class="row">
+            <div class="form-group text-right">
+                <ul class="pagination pagination-sm">
+                    <li><a href>&laquo;</a></li>
+                    <li><a href="#">&lsaquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&rsaquo;</a></li>
+                    <li><a href="#">&raquo;</a></li>
                 </ul>
-                <ul class="rightside-links"></ul>
             </div>
+        </div>
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
         </div>
     </div>
-</body>
+
+    <div class="col-lg-2">
+        <div class="panel panel-default">
+            <img class="img" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
+        </div>
+    </div>
+</div>
+
+<script>
+    var ngApp = angular.module('ngTopicsModule', []);
+
+    ngApp.service('$topic',
+        function ($http) {
+
+            this.loadTopicSummaries = function () {
+                return $http.get('/data/topics.json')
+                    .then(function (loadTopicSummariesResponse) {
+                        var loadTopicSummariesResult = loadTopicSummariesResponse.data;
+                        if (!loadTopicSummariesResult)
+                            throw 'No topic summaries has been found';
+
+                        return loadTopicSummariesResult;
+                    });
+            };
+        });
+
+    ngApp.controller('ngTopicsController',
+        function ($scope, $topic) {
+
+            $scope._loadTopicSummariesResult = {};
+
+            $scope.ngOnInit = function () {
+                $topic
+                    .loadTopicSummaries()
+                    .then(function (loadTopicSummariesResult) {
+                        $scope._loadTopicSummariesResult = loadTopicSummariesResult;
+                    });
+            }
+
+        });
+</script>

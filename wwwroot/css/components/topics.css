@@ -1,0 +1,79 @@
+.topics-title {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+table.topics {
+}
+
+    table.topics tbody {
+        background-color: #ffffff;
+    }
+
+        table.topics tbody td .topic-info-container {
+        }
+
+            table.topics tbody td .topic-info-container .topic-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            table.topics tbody td .topic-info-container .topic-detail-container {
+                display: inline-block;
+            }
+
+            table.topics tbody td .topic-info-container .topic-detail-container {
+                vertical-align: top;
+            }
+
+a.topic-title {
+    font-size: 18px;
+}
+
+div.topic-description {
+    font-size: 12px;
+    width: 900px;
+}
+
+table.topics thead tr {
+    height: 50px;
+}
+
+    table.topics thead tr th {
+        vertical-align: middle;
+    }
+
+table.topics tr.no-bottom-padding th {
+    border-bottom: 0;
+}
+
+table.topics thead .replies {
+    width: 100px;
+    font-family: Ubuntu, sans-serif;
+}
+
+table.topics thead .views {
+    width: 100px;
+    font-family: Ubuntu, sans-serif;
+}
+
+table.topics thead .last-post {
+    width: 250px;
+    font-family: Ubuntu, sans-serif;
+}
+
+table.topics tbody .replies {
+    width: 100px;
+}
+
+table.topics tbody .views {
+    width: 100px;
+}
+
+table.topics tbody .last-post {
+    width: 250px;
+}
+
+    table.topics tbody .last-post div {
+        width: 250px;
+    }
