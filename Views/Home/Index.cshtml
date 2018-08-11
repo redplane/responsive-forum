@@ -1,0 +1,144 @@
+﻿<body class="bg-grey">
+
+    @Html.Partial("_NavigationBar")
+
+    @Html.Partial("_HeaderBar")
+
+    <div ng-app="ngForumTopicsApp"
+         ng-controller="ngForumTopicController"
+         ng-init="ngOnInit()">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="form-group">
+                    <div class="forum-header"
+                         data-type="background"
+                         data-speed="3">
+                        <div class="container full-height">
+                            <div class="title-panel">
+                                <h2 class="site-name">PixelGoose.com</h2>
+                                <p class="site-description">Premium styles for phpBB3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-lg-push-1">
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ol class="breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Library</a></li>
+                                <li class="active">Data</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-repeat="forumSummary in  _forumSummaries">
+                        <div class="col-lg-12">
+                            <table class="table table-condensed categories-box">
+                                <thead>
+                                    <tr>
+                                        <th class="category-name">
+                                            <a href="javascript:void(0);">{{forumSummary.name}}</a>
+                                        </th>
+                                        <th class="category-posts">Posts</th>
+                                        <th class="latest-post">Latest post</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="topic in forumSummary.topics">
+                                        <td class="topic-info">
+                                            <div class="category-image-wrapper">
+                                                <img src="http://pngimages.net/sites/default/files/yellow-chat-bubble-png-image-68569.png" />
+                                            </div>
+                                            <div class="forum">
+                                                <a href="@Url.Action(" Topic", "Home" )" class="forumtitle">{{topic.name}}</a><br>
+                                                <div class="forum-description text-ellipsis">{{topic.description}}</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>{{topic.totalPost}}</span>
+                                        </td>
+                                        <td class="latest-post">
+                                            <div class="info-wrapper">
+                                                <div class="text-ellipsis">
+                                                    <b class="fa fa-folder"></b>&nbsp;
+                                                    <i>Last post by</i> <a href="javascript:void(0);">{{topic.latestPost.username}}</a>
+                                                </div>
+                                                <div class="text-ellipsis">
+                                                    <b class="fa fa-clock-o"></b>&nbsp;
+                                                    <i>Created at</i> {{topic.latestPost.time}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ol class="breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Library</a></li>
+                                <li class="active">Data</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.Partial("_Footer")
+                    </div>
+                </div>
+
+                <div class="col-lg-3 visible-lg">
+                    <div class="form-group">
+                        <img class="img img-responsive" src="https://englishinamerica.files.wordpress.com/2013/05/vintage-ad.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var ngApp = angular.module('ngForumTopicsApp', []);
+
+    ngApp.service('$forum',
+        function ($http) {
+
+            this.loadForumSummaries = function () {
+                return $http
+                    .get('/data/forum-summaries.json')
+                    .then(function (loadForumSummariesResponse) {
+                        var loadForumSummariesResult = loadForumSummariesResponse.data;
+                        if (!loadForumSummariesResult)
+                            throw 'No forum summaries has been found';
+
+                        return loadForumSummariesResult.records;
+                    });
+            }
+        });
+
+    ngApp.controller('ngForumTopicController',
+        function ($scope, $forum) {
+
+            $scope._forumSummaries = [];
+
+            $scope.ngOnInit = function () {
+                $forum.loadForumSummaries()
+                    .then(function (forumSummaries) {
+                        $scope._forumSummaries = forumSummaries;
+                    });
+            }
+        });
+</script>

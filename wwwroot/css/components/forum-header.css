@@ -1,0 +1,24 @@
+.forum-header {
+    height: 160px;
+    background-color: #26BCB0;
+    background-image: url(/css/marina_teal/theme/images/subheader_bg.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 100%;
+}
+
+    .forum-header .title-panel {
+        margin-top: 30px;
+    }
+
+    .forum-header h2.site-name {
+        text-align: center;
+        font-size: 50px;
+        color: white;
+    }
+
+    .forum-header p.site-description {
+        text-align: center;
+        font-size: 14px;
+        color: white;
+    }

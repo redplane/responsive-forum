@@ -1,0 +1,25 @@
+/*Background colors*/
+.bg-grey {
+    background-color: #EAEDF1;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-light-black {
+    background-color: #2E3539;
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.color-grey {
+    color: #EAEDF1;
+}
+
+.color-white {
+    color: #ffffff;
+}

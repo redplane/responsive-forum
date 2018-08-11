@@ -1,0 +1,142 @@
+.categories-box {
+    background-color: #FFF;
+}
+
+    .categories-box .category-image-wrapper {
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .categories-box thead {
+        background-color: #26BCB0;
+    }
+
+    .categories-box th, td {
+        font-family: Ubuntu, sans-serif
+    }
+
+    .categories-box .category-name {
+        padding-right: 58px;
+        vertical-align: middle;
+        font-size: 1.333em;
+        color: #FFFFFF;
+        padding-left: 20px;
+    }
+
+    .categories-box .category-topics {
+        font-size: 1em;
+        color: #FFFFFF;
+        vertical-align: middle;
+    }
+
+    .categories-box th.latest-post {
+        font-size: 1em;
+        color: #FFFFFF;
+        vertical-align: middle;
+        width: 250px;
+    }
+
+    .categories-box td.latest-post .info-wrapper {
+        width: 250px;
+    }
+
+    .categories-box .category-posts {
+        font-size: 1em;
+        color: #FFFFFF;
+        vertical-align: middle;
+    }
+
+    .categories-box .topic-info {
+        padding-left: 20px;
+    }
+
+    .categories-box thead tr {
+        height: 50px;
+    }
+
+.category-image-wrapper img {
+    height: 64px;
+    width: 64px;
+}
+
+.categories-box .forum {
+    display: inline-block;
+}
+
+/* Forum panel */
+.forum-side-panel .panel-default {
+    font-family: Ubuntu, sans-serif;
+    font-size: 1.333em;
+    border-radius: 0;
+}
+
+    .forum-side-panel .panel-default .panel-heading {
+        background-color: #2E3539 !important;
+    }
+
+        .forum-side-panel .panel-default .panel-heading .panel-title {
+            color: #FFF;
+        }
+
+    .forum-side-panel .panel-default .panel-body {
+        background-color: #FFF;
+    }
+
+.panel.forum-statistic-panel {
+    background-color: #FFF;
+    color: black;
+}
+
+.forum-statistic-panel .panel-heading {
+    background-color: #2e3539;
+    color: #ffffff;
+}
+
+    .forum-statistic-panel .panel-heading .panel-title {
+        margin-bottom: 0;
+    }
+
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .categories-box .forum {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width : 1200px) {
+
+    .categories-box .forum {
+        width: 400px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .categories-box .forum {
+        width: 250px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    .categories-box .forum {
+        width: 250px;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+    .categories-box .forum {
+        width: 150px;
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    .categories-box .forum {
+        width: 150px;
+    }
+}
