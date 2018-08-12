@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/im-icons.css" type="text/css">
     <link rel="stylesheet" href="~/css/bootstrap-overriden.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/css/AdminLTE.min.css" />
     @*Components*@
     <link rel="stylesheet" href="~/css/components/footer.css" />
 
@@ -23,6 +23,8 @@
 
     <link rel="stylesheet" href="~/css/components/forum-categories.css" />
     <link rel="stylesheet" href="~/css/components/topics.css" />
+    <link rel="stylesheet" href="/css/components/topic.css" />
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -50,7 +52,9 @@
         </div>
     </div>
 
-    @RenderBody()
+    <div class="row">
+        @RenderBody()
+    </div>
 
     <div class="row">
         @Html.Partial("_Footer")

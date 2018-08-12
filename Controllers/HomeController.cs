@@ -20,7 +20,7 @@ namespace PhpForum.Controllers
             return View();
         }
 
-        public IActionResult TopicDetail()
+        public IActionResult ForumTopic()
         {
             return View();
         }

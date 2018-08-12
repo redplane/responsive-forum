@@ -1,0 +1,152 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div ng-app="ngTopicsModule"
+     ng-controller="ngTopicsController"
+     ng-init="ngOnInit()">
+    <div class="col-lg-10">
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
+        </div>
+
+        @*Forum description*@
+        <div>
+            <h1 class="topics-title">
+                <a href="javascript:void(0);">
+                    Your first
+                    forum
+                </a>
+            </h1>
+        </div>
+
+        @*Pagination*@
+        <div>
+            <div class="form-group text-right">
+                <ul class="pagination pagination-sm">
+                    <li><a href>&laquo;</a></li>
+                    <li><a href="#">&lsaquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&rsaquo;</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group">
+                <table class="table table-condensed topics">
+                    <thead>
+                        <tr class="no-bottom-padding bg-teal">
+                            <th>Topics</th>
+                            <th class="replies">Replies</th>
+                            <th class="views">Views</th>
+                            <th class="last-post">Last post</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="topic in _loadTopicSummariesResult.records">
+                            <td>
+                                <div class="topic-info-container">
+                                    <img class="topic-img" ng-src="{{topic.photo}}" />
+                                    <div class="topic-detail-container">
+                                        <a class="topic-title" href="@Url.Action("Topic")">{{topic.title}}</a>
+                                        <div class="topic-description text-ellipsis">
+                                            <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="replies">
+                                {{topic.replies}}
+                            </td>
+                            <td class="views">
+                                {{topic.views}}
+                            </td>
+                            <td class="last-post">
+                                <div class="text-ellipsis">
+                                    <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
+                                    <br />
+                                    <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        @*Pagination*@
+        <div>
+            <div class="form-group text-right">
+                <ul class="pagination pagination-sm">
+                    <li><a href>&laquo;</a></li>
+                    <li><a href="#">&lsaquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&rsaquo;</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="col-lg-2">
+        <div class="form-group">
+            <img class="img img-responsive" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
+        </div>
+    </div>
+</div>
+
+<script>
+    var ngApp = angular.module('ngTopicsModule', []);
+
+    ngApp.service('$topic',
+        function ($http) {
+
+            this.loadTopicSummaries = function () {
+                return $http.get('/data/topics.json')
+                    .then(function (loadTopicSummariesResponse) {
+                        var loadTopicSummariesResult = loadTopicSummariesResponse.data;
+                        if (!loadTopicSummariesResult)
+                            throw 'No topic summaries has been found';
+
+                        return loadTopicSummariesResult;
+                    });
+            };
+        });
+
+    ngApp.controller('ngTopicsController',
+        function ($scope, $topic) {
+
+            $scope._loadTopicSummariesResult = {};
+
+            $scope.ngOnInit = function () {
+                $topic
+                    .loadTopicSummaries()
+                    .then(function (loadTopicSummariesResult) {
+                        $scope._loadTopicSummariesResult = loadTopicSummariesResult;
+                    });
+            }
+
+        });
+</script>

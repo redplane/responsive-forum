@@ -2,143 +2,228 @@
     Layout = "_Layout";
 }
 
-<div ng-app="ngTopicsModule"
-     ng-controller="ngTopicsController"
-     ng-init="ngOnInit()">
-    <div class="col-lg-10">
-        <div class="row">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Library</a></li>
-                <li class="active">Data</li>
-            </ol>
-        </div>
+<div class="col-lg-10">
 
-        @*Forum description*@
-        <div class="row">
-            <h1 class="topics-title">
-                <a href="javascript:void(0);">
-                    Your first
-                    forum
-                </a>
-            </h1>
+    @*Topic title*@
+    <div>
+        <div class="form-group">
+            <b class="topic-name">
+                <a href="javascript:void(0);">Topic title</a>
+            </b>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="form-group">
-                <button class="btn btn-primary">
-                    <span class="fa fa-plus-circle"></span>&nbsp;
-                    Add a thread
-                </button>
-            </div>
+    @*Top pagination*@
+    <div class="row">
+        <div class="col-sm-6 col-xs-4">
+            <button class="btn btn-primary btn-reply">
+                <span class="fa fa-plus"></span>
+                <span>&nbsp;</span>
+                <b>Post reply</b>
+            </button>
         </div>
-
-        <div class="row">
-            <div class="form-group">
-                <table class="table table-condensed topics">
-                    <thead>
-                        <tr class="no-bottom-padding bg-teal">
-                            <th>Topics</th>
-                            <th class="replies">Replies</th>
-                            <th class="views">Views</th>
-                            <th class="last-post">Last post</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="topic in _loadTopicSummariesResult.records">
-                            <td>
-                                <div class="topic-info-container">
-                                    <img class="topic-img" ng-src="{{topic.photo}}" />
-                                    <div class="topic-detail-container">
-                                        <a class="topic-title">{{topic.title}}</a>
-                                        <div class="topic-description text-ellipsis">
-                                            <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="replies">
-                                {{topic.replies}}
-                            </td>
-                            <td class="views">
-                                {{topic.views}}
-                            </td>
-                            <td class="last-post">
-                                <div class="text-ellipsis">
-                                    <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
-                                    <br />
-                                    <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        @*Pagination*@
-        <div class="row">
-            <div class="form-group text-right">
-                <ul class="pagination pagination-sm">
-                    <li><a href>&laquo;</a></li>
-                    <li><a href="#">&lsaquo;</a></li>
+        <div class="col-sm-6 col-xs-8">
+            <nav aria-label="Page navigation" class="text-right">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
-                    <li><a href="#">&rsaquo;</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
                 </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Library</a></li>
-                <li class="active">Data</li>
-            </ol>
+            </nav>
         </div>
     </div>
 
-    <div class="col-lg-2">
-        <div class="panel panel-default">
-            <img class="img" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
+    @*Posts*@
+    <div>
+        <div class="form-group">
+            <div class="box box-widget post">
+                <div class="box-body">
+                    <div class="col-md-10 col-sm-9 col-xs-8">
+                        <div class="post-title">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <th class="icon-container">
+                                            <span class="fa fa-file"></span>
+                                        </th>
+                                        <td>
+                                            <b><a href="javascript:void(0)">I took this photo this morning. What do you guys think?</a></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="icon-container">
+                                            <span class="fa fa-clock-o"></span>
+                                        </th>
+                                        <td>
+                                            <span class="time">2018-01-01</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="post-content">
+                            phpBB is a free flat-forum bulletin board software solution that can be used to stay in touch with a group of people or can power your entire website. With an extensive database of user-created modifications and styles database containing hundreds of style and image packages to customise your board, you can create a very unique forum in minutes.<br><br>No other bulletin board software offers a greater complement of features, while maintaining efficiency and ease of use. Best of all, phpBB is completely free. We welcome you to test it for yourself today. If you have any questions please visit our Community Forum where our staff and members of the community will be happy to assist you with anything from configuring the software to modifying the code for individual needs. Learn more about phpBB.
+                        </div>
+                        <div class="post-signature">
+                            This is signature
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4">
+                        <div class="form-group text-center">
+                            <img class="img img-responsive" src="http://www.thefloridacenter.org/wp-content/uploads/2016/11/105-User-512-2.png" />
+                        </div>
+
+                        <div>
+                            <a href="javascript:void(0)">
+                                <b>Username</b>
+                            </a>
+                        </div>
+
+                        @*User role in the system*@
+                        <div class="user-role">
+                            Site admin
+                        </div>
+
+                        @*User post count*@
+                        <div class="user-post-count">
+                            <b>Posts :</b>
+                            <span>&nbsp;</span>
+                            <span class="badge">10</span>
+                        </div>
+
+                        <div class="user-joined-date">
+                            <b>Joined :</b>
+                            <span>&nbsp;</span>
+                            <span>2018-01-01</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Replies*@
+    <div>
+        <div class="form-group">
+            <div class="box box-widget post">
+                <div class="box-body">
+                    <div class="col-md-10 col-sm-9 col-xs-8">
+                        <div class="post-title">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <th class="icon-container">
+                                            <span class="fa fa-reply"></span>
+                                        </th>
+                                        <td>
+                                            <b><a href="javascript:void(0)">Re: I took this photo this morning. What do you guys think?</a></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="icon-container">
+                                            <span class="fa fa-clock-o"></span>
+                                        </th>
+                                        <td>
+                                            <span class="time">2018-01-01</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="post-content">
+                            <blockquote>
+                                <div>
+                                    <span>&raquo;</span> <i>Originally posted by</i> <a>Username</a>
+                                </div>
+                                phpBB is a free flat-forum bulletin board software solution that can be used to stay in touch with a group of people or can power your entire website. With an extensive database of user-created modifications and styles database containing hundreds of style and image packages to customise your board, you can create a very unique forum in minutes.<br><br>No other bulletin board software offers a greater complement of features, while maintaining efficiency and ease of use. Best of all, phpBB is completely free. We welcome you to test it for yourself today. If you have any questions please visit our Community Forum where our staff and members of the community will be happy to assist you with anything from configuring the software to modifying the code for individual needs. Learn more about phpBB.
+                            </blockquote>
+                            Really ????
+                        </div>
+                        <div class="post-signature">
+                            This is signature
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4">
+                        <div class="form-group text-center">
+                            <img class="img img-responsive" src="http://www.thefloridacenter.org/wp-content/uploads/2016/11/105-User-512-2.png" />
+                        </div>
+
+                        <div>
+                            <a href="javascript:void(0)">
+                                <b>Username</b>
+                            </a>
+                        </div>
+
+                        @*User role in the system*@
+                        <div class="user-role">
+                            Site admin
+                        </div>
+
+                        @*User post count*@
+                        <div class="user-post-count">
+                            <b>Posts:</b>
+                            <span>&nbsp;</span>
+                            <span class="badge">10</span>
+                        </div>
+
+                        <div class="user-joined-date">
+                            <b>Joined:</b>
+                            <span>&nbsp;</span>
+                            <span>2018-01-01</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Bottom pagination*@
+    <div class="row">
+        <div class="col-sm-6 col-xs-4">
+            <button class="btn btn-primary btn-reply">
+                <span class="fa fa-plus"></span>
+                <span>&nbsp;</span>
+                <b>Post reply</b>
+            </button>
+        </div>
+        <div class="col-sm-6 col-xs-8">
+            <nav aria-label="Page navigation" class="text-right">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
 
-<script>
-    var ngApp = angular.module('ngTopicsModule', []);
+<div class="col-lg-2">
+    <img class="img img-responsive" src="https://78.media.tumblr.com/2bf4ce77694d85e2daccb77a1e1a23e8/tumblr_mox3htmVfS1rxge6bo1_500.jpg" />
+</div>
 
-    ngApp.service('$topic',
-        function ($http) {
 
-            this.loadTopicSummaries = function () {
-                return $http.get('/data/topics.json')
-                    .then(function (loadTopicSummariesResponse) {
-                        var loadTopicSummariesResult = loadTopicSummariesResponse.data;
-                        if (!loadTopicSummariesResult)
-                            throw 'No topic summaries has been found';
-
-                        return loadTopicSummariesResult;
-                    });
-            };
-        });
-
-    ngApp.controller('ngTopicsController',
-        function ($scope, $topic) {
-
-            $scope._loadTopicSummariesResult = {};
-
-            $scope.ngOnInit = function () {
-                $topic
-                    .loadTopicSummaries()
-                    .then(function (loadTopicSummariesResult) {
-                        $scope._loadTopicSummariesResult = loadTopicSummariesResult;
-                    });
-            }
-
-        });
-</script>
