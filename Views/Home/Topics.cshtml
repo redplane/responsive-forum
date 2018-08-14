@@ -5,7 +5,7 @@
 <div ng-app="ngTopicsModule"
      ng-controller="ngTopicsController"
      ng-init="ngOnInit()">
-    <div class="col-lg-10">
+    <div class="col-md-12">
         <div>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
@@ -24,20 +24,28 @@
             </h1>
         </div>
 
-        @*Pagination*@
-        <div>
-            <div class="form-group text-right">
-                <ul class="pagination pagination-sm">
-                    <li><a href>&laquo;</a></li>
-                    <li><a href="#">&lsaquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&rsaquo;</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
+        @*Add topic & pagination*@
+        <div class="row">
+            <div class="col-xs-4">
+                <a class="btn btn-primary btn-add-topic" href="@Url.Action("AddEditTopic")">
+                    <span class="fa fa-plus"></span>
+                    <span>New topic</span>
+                </a>
+            </div>
+            <div class="col-xs-8">
+                <div class="text-right">
+                    <ul class="pagination pagination-sm">
+                        <li><a href>&laquo;</a></li>
+                        <li><a href="#">&lsaquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&rsaquo;</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -46,6 +54,7 @@
                 <table class="table table-condensed topics">
                     <thead>
                         <tr class="no-bottom-padding bg-teal">
+                            <th></th>
                             <th>Topics</th>
                             <th class="replies">Replies</th>
                             <th class="views">Views</th>
@@ -54,14 +63,16 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="topic in _loadTopicSummariesResult.records">
+                            <td class="topic-image-container">
+                                <img class="img" ng-src="{{topic.photo}}" />
+                            </td>
                             <td>
                                 <div class="topic-info-container">
-                                    <img class="topic-img" ng-src="{{topic.photo}}" />
-                                    <div class="topic-detail-container">
-                                        <a class="topic-title" href="@Url.Action("Topic")">{{topic.title}}</a>
-                                        <div class="topic-description text-ellipsis">
-                                            <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
-                                        </div>
+                                    <div class="topic-title">
+                                        <a href="@Url.Action("Topic")">{{topic.title}}</a>
+                                    </div>
+                                    <div class="topic-description">
+                                        <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
                                     </div>
                                 </div>
                             </td>
@@ -84,20 +95,28 @@
             </div>
         </div>
 
-        @*Pagination*@
-        <div>
-            <div class="form-group text-right">
-                <ul class="pagination pagination-sm">
-                    <li><a href>&laquo;</a></li>
-                    <li><a href="#">&lsaquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&rsaquo;</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
+        @*Add topic & pagination*@
+        <div class="row">
+            <div class="col-xs-4">
+                <button class="btn btn-primary btn-add-topic">
+                    <span class="fa fa-plus"></span>
+                    <span>New topic</span>
+                </button>
+            </div>
+            <div class="col-xs-8">
+                <div class="text-right">
+                    <ul class="pagination pagination-sm">
+                        <li><a href>&laquo;</a></li>
+                        <li><a href="#">&lsaquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&rsaquo;</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -110,11 +129,11 @@
         </div>
     </div>
 
-    <div class="col-lg-2">
+    @*<div class="col-md-2">
         <div class="form-group">
             <img class="img img-responsive" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
         </div>
-    </div>
+    </div>*@
 </div>
 
 <script>

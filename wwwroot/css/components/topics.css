@@ -3,6 +3,13 @@
     font-size: 2em;
 }
 
+.topics .topic-image-container {
+    width: 64px;
+    max-width: 64px;
+    vertical-align: middle;
+    text-align: center;
+}
+
 table.topics {
 }
 
@@ -13,26 +20,20 @@ table.topics {
         table.topics tbody td .topic-info-container {
         }
 
-            table.topics tbody td .topic-info-container .topic-img {
-                width: 64px;
-                height: 64px;
-            }
 
-            table.topics tbody td .topic-info-container .topic-detail-container {
-                display: inline-block;
-            }
+        table.topics tbody td .topic-info-container {
+            vertical-align: top;
+        }
 
-            table.topics tbody td .topic-info-container .topic-detail-container {
-                vertical-align: top;
-            }
 
-a.topic-title {
-    font-size: 18px;
+.topic-title {
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-div.topic-description {
+.topic-description {
+    font-style: italic;
     font-size: 12px;
-    width: 900px;
 }
 
 table.topics thead tr {
@@ -57,11 +58,6 @@ table.topics thead .views {
     font-family: Ubuntu, sans-serif;
 }
 
-table.topics thead .last-post {
-    width: 250px;
-    font-family: Ubuntu, sans-serif;
-}
-
 table.topics tbody .replies {
     width: 100px;
 }
@@ -70,10 +66,34 @@ table.topics tbody .views {
     width: 100px;
 }
 
-table.topics tbody .last-post {
-    width: 250px;
+table.topics tbody .last-post div {
+    max-width: 150px;
 }
 
-    table.topics tbody .last-post div {
-        width: 250px;
-    }
+button.btn-add-topic {
+    margin: 20px 0;
+}
+
+/*==========  Non-Mobile First Method  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+
+@media only screen and (max-width : 1200px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+}

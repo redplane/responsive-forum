@@ -36,30 +36,32 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
 </head>
-<body class="container-fluid bg-grey">
 
-    @*Navigation bar*@
-    <div class="row">
-        <div class="col-lg-12">
-            @Html.Partial("_NavigationBar")
+<body class="bg-grey">
+    <div class="col-lg-12 app-content">
+        @*Navigation bar*@
+        <div class="row">
+            <div class="col-lg-12">
+                @Html.Partial("_NavigationBar")
+            </div>
         </div>
-    </div>
 
-    @*Forum header*@
-    <div class="row">
-        <div class="col-lg-12">
-            @Html.Partial("_Header")
+        @*Forum header*@
+        <div class="row">
+            <div class="col-lg-12">
+                @Html.Partial("_Header")
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        @RenderBody()
-    </div>
-
-    <div class="row">
-        @Html.Partial("_Footer")
+        <div class="row">
+            @RenderBody()
+        </div>
     </div>
 
 </body>
+
 </html>
+<footer>
+    @Html.Partial("_Footer")
+</footer>
 

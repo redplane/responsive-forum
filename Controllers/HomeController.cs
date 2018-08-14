@@ -20,7 +20,7 @@ namespace PhpForum.Controllers
             return View();
         }
 
-        public IActionResult ForumTopic()
+        public IActionResult Topics()
         {
             return View();
         }
@@ -34,6 +34,15 @@ namespace PhpForum.Controllers
         {
             return View();
         }
-        
+
+        public IActionResult AddEditTopic()
+        {
+            return View();
+        }
+
+        public IActionResult AddEditTopicReply()
+        {
+            return View();
+        }
     }
 }
