@@ -70,7 +70,7 @@ table.topics tbody .last-post div {
     max-width: 150px;
 }
 
-button.btn-add-topic {
+.btn.btn-add-topic {
     margin: 20px 0;
 }
 

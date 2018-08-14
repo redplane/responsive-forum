@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = "_UnauthorizedLayout";
+}
+
+<div class="full-height login-box-container">
+    <div class="login-box">
+        <div class="col-lg-4 col-md-8 col-lg-push-4 col-md-push-2">
+            <div class="box box-default">
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <img class="img img-responsive" src="/images/login-logo.png" />
+
+                        <div class="text-center">
+                            <h1 class="text-center">
+                                <span class="fa fa-envelope"></span> iConfess
+                            </h1>
+                            <a href="javascript:void(0);">Say everything you want.</a>
+                        </div>
+
+                    </div>
+
+                    @*Email*@
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-envelope"></span>
+                                    </span>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Password*@
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label>Password</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-key"></span>
+                                </span>
+                                <input class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Captcha*@
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            Captcha here
+                        </div>
+                    </div>
+
+                    <div class="col-sm-9 col-sm-push-3">
+                        @*Forgot password*@
+                        <div class="form-group">
+                            <a href="@Url.Action("ForgotPassword")"><span class="fa fa-free-code-camp"></span> Forgot password ?</a>
+                        </div>
+
+                        @*Register*@
+                        <div class="form-group">
+                            <a href="@Url.Action("Register")">
+                                <span class="fa fa-id-card-o"></span> Register
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="box-footer">
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="@Url.Action("Index")">
+                            <span class="fa fa-sign-in"></span> Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

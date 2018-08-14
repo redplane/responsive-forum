@@ -40,7 +40,17 @@ namespace PhpForum.Controllers
             return View();
         }
 
-        public IActionResult AddEditTopicReply()
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        public IActionResult Register()
         {
             return View();
         }
