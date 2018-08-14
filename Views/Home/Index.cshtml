@@ -5,21 +5,21 @@
 <div ng-app="ngForumTopicsApp"
      ng-controller="ngForumTopicController"
      ng-init="ngOnInit()">
-    
+
     @*Forums categories*@
-    <div>
-        <div class="col-lg-12">
+    <div class="col-lg-12">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li class="active">Data</li>
-                    </ol>
-                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                </ol>
             </div>
-
+        </div>
+        
+        <div class="categories-box-container">
             <div class="row" ng-repeat="forumSummary in  _forumSummaries">
                 <div class="col-lg-12">
                     <table class="table table-condensed categories-box">
@@ -63,21 +63,19 @@
                     </table>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li class="active">Data</li>
-                    </ol>
-                </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                </ol>
             </div>
-
         </div>
 
     </div>
-
 </div>
 
 <script>

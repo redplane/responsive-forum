@@ -2,10 +2,14 @@
     background-color: #FFF;
 }
 
-    .categories-box .category-image-wrapper {
-        vertical-align: top;
-        display: inline-block;
-    }
+.categories-box-container {
+    overflow-x: auto;
+}
+
+.categories-box .category-image-wrapper {
+    vertical-align: top;
+    display: inline-block;
+}
 
     .categories-box thead {
         background-color: #26BCB0;
@@ -99,6 +103,7 @@
     .forum-statistic-panel .panel-heading .panel-title {
         margin-bottom: 0;
     }
+
 
 /*==========  Non-Mobile First Method  ==========*/
 /* Large Devices, Wide Screens */
