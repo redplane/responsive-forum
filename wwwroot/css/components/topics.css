@@ -1,80 +1,53 @@
-.topics-title {
-    font-weight: bold;
-    font-size: 2em;
-}
-
-.topics .topic-image-container {
-    width: 64px;
-    max-width: 64px;
-    vertical-align: middle;
-    text-align: center;
-}
-
-table.topics {
-}
-
-    table.topics tbody {
-        background-color: #ffffff;
-    }
-
-        table.topics tbody td .topic-info-container {
-        }
-
-
-        table.topics tbody td .topic-info-container {
-            vertical-align: top;
-        }
-
-
-.topic-title {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.topic-description {
-    font-style: italic;
-    font-size: 12px;
-}
-
-table.topics thead tr {
-    height: 50px;
-}
-
-    table.topics thead tr th {
-        vertical-align: middle;
-    }
-
-table.topics tr.no-bottom-padding th {
-    border-bottom: 0;
-}
-
-table.topics thead .replies {
-    width: 100px;
-    font-family: Ubuntu, sans-serif;
-}
-
-table.topics thead .views {
-    width: 100px;
-    font-family: Ubuntu, sans-serif;
-}
-
-table.topics tbody .replies {
-    width: 100px;
-}
-
-table.topics tbody .views {
-    width: 100px;
-}
-
-table.topics tbody .last-post div {
-    max-width: 150px;
-}
-
 .btn.btn-add-topic {
     margin: 20px 0;
 }
 
+.topic-container {
+    background-color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: #EAEDF1 solid 1px
+}
 
+    .topic-container .topic-main-info {
+        display: flex;
+    }
+
+    .topic-container .topic-image {
+        width: 64px;
+        height: 64px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+.topic-image img {
+}
+
+.topic-container .topic-title {
+    display: inline-block;
+    margin-left: 10px;
+    min-width: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+    .topic-container .topic-title .main-title {
+        font-weight: bold;
+    }
+
+.topic-container .topic-creator small {
+    font-style: italic;
+}
+
+.topic-container .topic-views {
+    text-align: center;
+}
+
+    .topic-container .topic-views .views-number {
+        font-size: 20px;
+        font-weight: bold;
+    }
 /*==========  Non-Mobile First Method  ==========*/
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
@@ -84,11 +57,20 @@ table.topics tbody .last-post div {
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : 991px) {
+
+    .topic-container .topic-title {
+        display: inline-block;
+        white-space: normal;
+    }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
+
+    .topic-info {
+        margin-left: 64px;
+    }
 }
 
 /* Extra Small Devices, Phones */

@@ -27,7 +27,7 @@
         @*Add topic & pagination*@
         <div class="row">
             <div class="col-xs-4">
-                <a class="btn btn-primary btn-add-topic" href="@Url.Action("AddEditTopic")">
+                <a class="btn btn-primary btn-add-topic" href="@Url.Action(" AddEditTopic")">
                     <span class="fa fa-plus"></span>
                     <span>New topic</span>
                 </a>
@@ -51,47 +51,149 @@
 
         <div>
             <div class="form-group">
-                <table class="table table-condensed topics">
-                    <thead>
-                        <tr class="no-bottom-padding bg-teal">
-                            <th></th>
-                            <th>Topics</th>
-                            <th class="replies">Replies</th>
-                            <th class="views">Views</th>
-                            <th class="last-post">Last post</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="topic in _loadTopicSummariesResult.records">
-                            <td class="topic-image-container">
+                @*<table class="table table-condensed topics">
+                        <thead>
+                            <tr class="no-bottom-padding bg-teal">
+                                <th></th>
+                                <th>Topics</th>
+                                <th class="replies">Replies</th>
+                                <th class="views">Views</th>
+                                <th class="last-post">Last post</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="topic in _loadTopicSummariesResult.records">
+                                <td class="topic-image-container">
+                                    <img class="img" ng-src="{{topic.photo}}" />
+                                </td>
+                                <td>
+                                    <div class="topic-info-container">
+                                        <div class="topic-title">
+                                            <a href="@Url.Action(" Topic")">{{topic.title}}</a>
+                                        </div>
+                                        <div class="topic-description">
+                                            <b>by</b> <a href="@Url.Action(" Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="replies">
+                                    {{topic.replies}}
+                                </td>
+                                <td class="views">
+                                    {{topic.views}}
+                                </td>
+                                <td class="last-post">
+                                    <div class="text-ellipsis">
+                                        <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
+                                        <br />
+                                        <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>*@
+
+                @*<div class="box box-default"
+                           ng-repeat="topic in _loadTopicSummariesResult.records">
+                        <div class="box-body">
+                            <div>
                                 <img class="img" ng-src="{{topic.photo}}" />
-                            </td>
-                            <td>
-                                <div class="topic-info-container">
-                                    <div class="topic-title">
-                                        <a href="@Url.Action("Topic")">{{topic.title}}</a>
+                            </div>
+                            <div>
+                                <a href="@Url.Action(" Topic")">{{topic.title}}</a>
+                                <b>by</b> <a href="@Url.Action(" Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                <span>Replies: </span> <span>{{topic.replies}}</span>
+                                <span>Views: {{topic.views}}</span>
+                            </div>
+                        </div>
+                    </div>*@
+
+                <div class="col-lg-12">
+                    <div ng-repeat="topic in _loadTopicSummariesResult.records">
+                        <div class="row topic-container">
+                            <div class="col-md-10 col-sm-8 topic-main-info">
+                                <div class="topic-image">
+                                    <img src="https://via.placeholder.com/64x64" />
+                                </div>
+                                <div class="topic-title">
+                                    <a href="forum_post.html" class="main-title">{{topic.title}}</a>
+                                    <div class="topic-creator">
+                                        &raquo; <a href="@Url.Action("Profile")">
+                                            <small>{{topic.creator.username}}</small>
+                                        </a>
                                     </div>
-                                    <div class="topic-description">
-                                        <b>by</b> <a href="@Url.Action("Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                    <div>
+                                        &raquo; <a href="@Url.Action("Profile")">
+                                            <small>2018-01-01</small>
+                                        </a>
                                     </div>
                                 </div>
-                            </td>
-                            <td class="replies">
-                                {{topic.replies}}
-                            </td>
-                            <td class="views">
-                                {{topic.views}}
-                            </td>
-                            <td class="last-post">
-                                <div class="text-ellipsis">
-                                    <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
-                                    <br />
-                                    <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
+                            </div>
+
+                            <div class="topic-info">
+                                <div class="col-md-1 col-sm-2 col-xs-6 topic-views">
+                                    <div>
+                                        <span class="views-number"> 1216 </span>
+                                        <div>
+                                            <small>Replies</small>
+                                        </div>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <div class="col-md-1 col-sm-2 col-xs-6 topic-views">
+                                    <div>
+                                        <span class="views-number"> 368 </span>
+                                        <div>
+                                            <small>Followers</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @*<table class="table table-condensed topics">
+                        <thead>
+                            <tr class="no-bottom-padding bg-teal">
+                                <th></th>
+                                <th>Topics</th>
+                                <th class="replies">Replies</th>
+                                <th class="views">Views</th>
+                                <th class="last-post">Last post</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="topic in _loadTopicSummariesResult.records">
+                                <td class="topic-image-container">
+                                    <img class="img" ng-src="{{topic.photo}}" />
+                                </td>
+                                <td>
+                                    <div class="topic-info-container">
+                                        <div class="topic-title">
+                                            <a href="@Url.Action(" Topic")">{{topic.title}}</a>
+                                        </div>
+                                        <div class="topic-description">
+                                            <b>by</b> <a href="@Url.Action(" Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="replies">
+                                    {{topic.replies}}
+                                </td>
+                                <td class="views">
+                                    {{topic.views}}
+                                </td>
+                                <td class="last-post">
+                                    <div class="text-ellipsis">
+                                        <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
+                                        <br />
+                                        <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>*@
             </div>
         </div>
 
@@ -130,10 +232,10 @@
     </div>
 
     @*<div class="col-md-2">
-        <div class="form-group">
-            <img class="img img-responsive" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
-        </div>
-    </div>*@
+            <div class="form-group">
+                <img class="img img-responsive" src="https://znews-photo-td.zadn.vn/w660/Uploaded/pgi_xvauqbnau/2013_11_01/9e48aa776a5b4cac426524a370e04ae7_1.jpg" />
+            </div>
+        </div>*@
 </div>
 
 <script>
