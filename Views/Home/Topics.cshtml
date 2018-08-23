@@ -51,63 +51,7 @@
 
         <div>
             <div class="form-group">
-                @*<table class="table table-condensed topics">
-                        <thead>
-                            <tr class="no-bottom-padding bg-teal">
-                                <th></th>
-                                <th>Topics</th>
-                                <th class="replies">Replies</th>
-                                <th class="views">Views</th>
-                                <th class="last-post">Last post</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="topic in _loadTopicSummariesResult.records">
-                                <td class="topic-image-container">
-                                    <img class="img" ng-src="{{topic.photo}}" />
-                                </td>
-                                <td>
-                                    <div class="topic-info-container">
-                                        <div class="topic-title">
-                                            <a href="@Url.Action(" Topic")">{{topic.title}}</a>
-                                        </div>
-                                        <div class="topic-description">
-                                            <b>by</b> <a href="@Url.Action(" Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="replies">
-                                    {{topic.replies}}
-                                </td>
-                                <td class="views">
-                                    {{topic.views}}
-                                </td>
-                                <td class="last-post">
-                                    <div class="text-ellipsis">
-                                        <b class="fa fa-user"></b>&nbsp;<a href="javascript:void(0);">{{topic.lastPost.username}}</a>
-                                        <br />
-                                        <b class="fa fa-clock-o"></b>&nbsp;<span>{{topic.lastPost.time}}</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>*@
-
-                @*<div class="box box-default"
-                           ng-repeat="topic in _loadTopicSummariesResult.records">
-                        <div class="box-body">
-                            <div>
-                                <img class="img" ng-src="{{topic.photo}}" />
-                            </div>
-                            <div>
-                                <a href="@Url.Action(" Topic")">{{topic.title}}</a>
-                                <b>by</b> <a href="@Url.Action(" Topic")">{{topic.creator.username}}</a> » <span class="text-muted">{{topic.time}}</span>
-                                <span>Replies: </span> <span>{{topic.replies}}</span>
-                                <span>Views: {{topic.views}}</span>
-                            </div>
-                        </div>
-                    </div>*@
-
+               
                 <div class="col-lg-12">
                     <div ng-repeat="topic in _loadTopicSummariesResult.records">
                         <div class="row topic-container">

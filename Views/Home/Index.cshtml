@@ -18,53 +18,101 @@
                 </ol>
             </div>
         </div>
-        
-        <div class="categories-box-container">
-            <div class="row" ng-repeat="forumSummary in  _forumSummaries">
-                <div class="col-lg-12">
-                    <table class="table table-condensed categories-box">
-                        <thead>
-                            <tr>
-                                <th class="category-name">
-                                    <a href="javascript:void(0);">{{forumSummary.name}}</a>
-                                </th>
-                                <th class="category-posts">Posts</th>
-                                <th class="latest-post">Latest post</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="topic in forumSummary.topics">
-                                <td class="topic-info">
-                                    <div class="category-image-wrapper">
-                                        <img src="http://pngimages.net/sites/default/files/yellow-chat-bubble-png-image-68569.png" />
-                                    </div>
-                                    <div class="forum">
-                                        <a href="@Url.Action("Topics")" class="forumtitle">{{topic.name}}</a><br>
-                                        <div class="forum-description text-ellipsis">{{topic.description}}</div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>{{topic.totalPost}}</span>
-                                </td>
-                                <td class="latest-post">
-                                    <div class="info-wrapper">
-                                        <div class="text-ellipsis">
-                                            <b class="fa fa-folder"></b>&nbsp;
-                                            <i>Last post by</i> <a href="javascript:void(0);">{{topic.latestPost.username}}</a>
+
+        @*<div class="categories-box-container">
+                <div class="row" ng-repeat="forumSummary in  _forumSummaries">
+                    <div class="col-lg-12">
+                        <table class="table table-condensed categories-box">
+                            <thead>
+                                <tr>
+                                    <th class="category-name">
+                                        <a href="javascript:void(0);">{{forumSummary.name}}</a>
+                                    </th>
+                                    <th class="category-posts">Posts</th>
+                                    <th class="latest-post">Latest post</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="topic in forumSummary.topics">
+                                    <td class="topic-info">
+                                        <div class="category-image-wrapper">
+                                            <img src="http://pngimages.net/sites/default/files/yellow-chat-bubble-png-image-68569.png" />
                                         </div>
-                                        <div class="text-ellipsis">
-                                            <b class="fa fa-clock-o"></b>&nbsp;
-                                            <i>Created at</i> {{topic.latestPost.time}}
+                                        <div class="forum">
+                                            <a href="@Url.Action("Topics")" class="forumtitle">{{topic.name}}</a><br>
+                                            <div class="forum-description text-ellipsis">{{topic.description}}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span>{{topic.totalPost}}</span>
+                                    </td>
+                                    <td class="latest-post">
+                                        <div class="info-wrapper">
+                                            <div class="text-ellipsis">
+                                                <b class="fa fa-folder"></b>&nbsp;
+                                                <i>Last post by</i> <a href="javascript:void(0);">{{topic.latestPost.username}}</a>
+                                            </div>
+                                            <div class="text-ellipsis">
+                                                <b class="fa fa-clock-o"></b>&nbsp;
+                                                <i>Created at</i> {{topic.latestPost.time}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>*@
+
+        <div ng-repeat="group in _forumSummaries">
+            <div class="panel panel-default panel-category-group">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <span class="category-name">{{group.name}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="topic"
+                         ng-repeat="topic in group.topics">
+                        <div class="row">
+                            <div class="col-sm-8 col-xs-12">
+                                <div class="form-group">
+                                    <div class="topic-group-main-info">
+                                        <img class="img img-topic-group" ng-src="https://via.placeholder.com/64x64"/>
+                                        <div class="master-info">
+                                            <a href="@Url.Action("Topics")" class="topic-name">{{topic.name}}</a><br>
+                                            <div class="topic-description">{{topic.description}}</div>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 topic-posts">
+                                <div class="form-group">
+                                    <b class="fa fa-folder-open-o"></b> <span>&raquo;</span> {{topic.totalPost}}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-2 col-xs-12 topic-user-description">
+                                <div>
+                                    <div class="text-ellipsis">
+                                        <b class="fa fa-edit"></b>&nbsp;
+                                        <i>Last post by</i> <a href="javascript:void(0);" data-toggle="tooltip" title="{{topic.latestPost.username}}">{{topic.latestPost.username}}</a>
+                                    </div>
+                                    <div class="text-ellipsis">
+                                        <b class="fa fa-clock-o"></b>&nbsp;
+                                        <i>Created at</i> {{topic.latestPost.time}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-        
+
         <div class="row">
             <div class="col-lg-12">
                 <ol class="breadcrumb">
